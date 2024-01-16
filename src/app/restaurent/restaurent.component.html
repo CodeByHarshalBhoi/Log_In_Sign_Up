@@ -1,8 +1,8 @@
 <nav  class="navbar" style="background-color: #e3f2fd;">
   <div class="container-fluid">
-    <h2>Restuarant Record app</h2>
+    <h2>Record app</h2>
     <div class="d-flex">
-      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Restaurant</button>
+      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="clickAddrestaurant()">Add Record</button>
     </div>
   </div>
 </nav>
@@ -10,7 +10,7 @@
 
 <div class=" p-5 mb-4 bg-light rounded-4">
   <div class="container-fluid py-5">
-    <h1 class="display-5 fw-bold">Restaurant Record Management</h1>
+    <h1 class="display-5 fw-bold">Record Management</h1>
     <p class="col-md-8 fs-4">You can save record here</p>
     <a href="https://github.com/CodeByHarshalBhoi" target="_blank"
     class="btn btn-primary btn-lg">GitHub</a>
@@ -20,7 +20,7 @@
 <table class="table mt-4">
   <thead>
     <tr>
-      <th scope="col">Restaurant id</th>
+      <th scope="col">Reocrd id</th>
       <th scope="col">Name</th>
       <th scope="col">Mobile</th>
       <th scope="col">Email</th>
@@ -30,15 +30,15 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>1</td>
-      <td>Tulsi</td>
-      <td>1234567890</td>
-      <td>tulsi@gmail.com</td>
-      <td>Location not fixed</td>
-      <td>Chai & Coffee</td>
-      <td><button class="btn btn-info">Edit</button>&nbsp;
-      <button class="btn btn-danger">Delet</button></td>
+    <tr *ngFor="let restaurant of getAllRestaurantData">
+      <td > {{restaurant.id}}</td>
+      <td> {{restaurant.name}}</td>
+      <td> {{restaurant.mobile}}</td>
+      <td> {{restaurant.email}}</td>
+      <td> {{restaurant.address}}</td>
+      <td> {{restaurant.services}}</td>
+      <td><button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="editData(restaurant)">Edit</button>&nbsp;
+      <button class="btn btn-danger"  (click)="deleteData(restaurant)">Delete</button></td>
     </tr>
   </tbody>
 </table>
@@ -49,48 +49,71 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Detail</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form [formGroup]="formValue">
           <div class="mb-3">
             <label  class="form-label">Name</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter restaurant name....">
+            <input type="text" formControlName="name" class="form-control" [class.is-invalid]="f['name'].invalid && f['name'].touched" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter restaurant name....">
+            <!-- <span *ngIf="nameValidation">enter the field</span> -->
+          </div>
+
+          <div class="alert alert-danger" *ngIf="f['name'].invalid && f['name'].touched">name should be 3 char
+              <!-- <span class="alert alert-danger" *ngIf="f['name'].errors && f['name'].errors['required']">
+                  name is required
+              </span> -->
           </div>
 
           <div class="mb-3">
             <label  class="form-label">Email</label>
-            <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Enter email here">
+            <input type="email" formControlName="email" [class.is-invalid]="f['email'].invalid && f['email'].touched" class="form-control" id="exampleInputPassword1" placeholder="Enter email here">
+          </div>
+
+          <div class="alert alert-danger" *ngIf="f['email'].invalid && f['email'].touched">email should be in proper formate
           </div>
 
           <div class="mb-3">
             <label  class="form-label">Mobile</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Mobile....">
+            <input type="text" formControlName="mobile" [class.is-invalid]="f['mobile'].invalid && f['mobile'].touched" class="form-control" id="exampleInputPassword1" placeholder="Mobile....">
           </div>
+
+          <div class="alert alert-danger" *ngIf="f['mobile'].invalid && f['mobile'].touched">*only 10 digits are allowed
+          </div>
+
 
           <div class="mb-3">
             <label  class="form-label">Address</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Address....">
+            <input type="text" formControlName="address" [class.is-invalid]="f['address'].invalid && f['address'].touched" class="form-control" id="exampleInputPassword1" placeholder="Address....">
           </div>
+
+          <div class="alert alert-danger" *ngIf="f['address'].invalid && f['address'].touched">*required
+          </div>
+
+
 
           <div class="mb-3">
             <label  class="form-label">Service</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Services....">
+            <input type="text" formControlName="services" [class.is-invalid]="f['services'].invalid && f['services'].touched" class="form-control" id="exampleInputPassword1" placeholder="Services....">
+          </div>
+          <div class="alert alert-danger" *ngIf="f['services'].invalid && f['services'].touched">*required
           </div>
 
-          <div class="mb-3">
-            <label  class="form-label">Actiion</label>
+
+          <!-- <div class="mb-3">
+            <label  class="form-label">Action</label>
             <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Action....">
           </div>
 
 
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Submit</button> -->
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Add Details</button>
+        <button  *ngIf="addBtn" type="button" class="btn btn-primary" (click)="addRestaurant()" [disabled]="formValue.invalid">Add Details</button>
+        <button *ngIf="showAdd" type="button" class="btn btn-primary" (click)="upateDetails()">Update Details</button>
       </div>
     </div>
   </div>

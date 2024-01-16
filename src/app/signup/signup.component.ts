@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {HttpClient} from '@angular/common/http'
 import { Router } from '@angular/router';
 
@@ -17,12 +17,16 @@ signupForm !: FormGroup
 
   ngOnInit(): void {
     this.signupForm = this.formBuilder.group({
-      name:[''],
-      mobile:[''],
-      email:[''],
-      password:['']
+      name:['', [Validators.required]],
+      mobile:['',[Validators.required, Validators.maxLength(10)]],
+      email:['', Validators.required, Validators.email],
+      password:['', Validators.required]
     })
 
+  }
+
+  get signupValidation(){
+    return this.signupForm.controls;
   }
 
   submitSignUp(){

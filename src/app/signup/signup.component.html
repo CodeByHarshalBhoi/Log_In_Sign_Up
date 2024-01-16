@@ -15,41 +15,62 @@
 
                   <input formControlName="name"
                   type="email"
+                  [class.is-invalid]="signupValidation['name'].invalid && signupValidation['name'].touched"
                   class="form-control"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="Enter name here....">
             </div>
+           <div class="alert alert-danger" *ngIf="signupValidation['name'].invalid && signupValidation['name'].touched">*Required</div>
+
+
+
 
             <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Mobile No.</label>
                     <input formControlName="mobile"
                     type="email"
                     class="form-control"
+                    [class.is-invalid]="signupValidation['mobile'].invalid && signupValidation['mobile'].touched"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder="Enter mobile no....">
             </div>
+            <div class="alert alert-danger" *ngIf="signupValidation['mobile'].invalid && signupValidation['mobile'].touched">*Only 10 digits are allowed</div>
+
+
 
             <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
                     <input formControlName="email"
                     type="email"
                     class="form-control"
+                    [class.is-invalid]="signupValidation['email'].invalid && signupValidation['email'].touched"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder="Enter email.....">
-            </div>
+            </div><div class="alert alert-danger" *ngIf="signupValidation['email'].invalid && signupValidation['email'].touched">*Email must be in proper formate</div>
+
+
+
+
 
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Password</label>
               <input formControlName="password"
               type="password"
               class="form-control"
+
               id="exampleInputPassword1"
               placeholder="Enter password....">
             </div>
-            <button type="submit" class="btn btn-primary">Signup</button>
+            <!-- <div class="alert alert-danger" *ngIf="signupValidation['password'].invalid && signupValidation['password'].touched">*Password have atleast 5 char</div> -->
+
+
+
+
+
+            <button type="submit" class="btn btn-primary" >Signup</button>
           </form>
           <a routerLink="/login">Already singup: click to login</a>
 

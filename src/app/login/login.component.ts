@@ -33,7 +33,7 @@ loginForm!:FormGroup
         alert("User not found");
       }
     },err=>{
-      alert("Somethinh wents wrong....")
+      alert("Something wents wrong....")
     })
   }
 }

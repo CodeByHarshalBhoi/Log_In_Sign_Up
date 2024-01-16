@@ -20,6 +20,82 @@
       "email": "test@gmail.com",
       "password": "123123",
       "id": 1
+    },
+    {
+      "name": "Harshal Bhoi",
+      "mobile": "7418529630",
+      "email": "harshal@gmail.com",
+      "password": "harshal",
+      "id": 2
+    },
+    {
+      "name": "test1",
+      "mobile": "1231231231",
+      "email": "test1@gmail.com",
+      "password": "",
+      "id": 3
+    },
+    {
+      "name": "test",
+      "mobile": "1212121212",
+      "email": "test@gmail.com",
+      "password": "",
+      "id": 4
+    },
+    {
+      "name": "test",
+      "mobile": "1212121211",
+      "email": "",
+      "password": "",
+      "id": 5
+    },
+    {
+      "name": "test",
+      "mobile": "4545454545",
+      "email": "test11@gmail.com",
+      "password": "121212",
+      "id": 6
+    },
+    {
+      "name": "test",
+      "mobile": "9638527411",
+      "email": "test111@gmail.com",
+      "password": "121212",
+      "id": 7
+    }
+  ],
+  "restaurant": [
+    {
+      "id": 1,
+      "name": "Tulsi Restaurant",
+      "email": "tulsi@gmail.com",
+      "mobile": "1254879632",
+      "address": "Surat",
+      "services": "Food Services"
+    },
+    {
+      "id": 2,
+      "name": "test",
+      "email": "alsd@gmail.com",
+      "mobile": "1251251251",
+      "address": "a",
+      "services": "dd"
+    },
+    {
+      "id": 3,
+      "name": "test",
+      "email": "sarvottam@gmail.com",
+      "mobile": "1254125412",
+      "address": "Surat",
+      "services": "Chai & Coffee"
+    },
+    {
+      "id": 4,
+      "name": "test",
+      "email": "new@gmail.com",
+      "mobile": "3213213211",
+      "address": "surat",
+      "services": "sld"
     }
   ],
   "profile": {
