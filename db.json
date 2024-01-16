@@ -74,14 +74,6 @@
       "services": "Food Services"
     },
     {
-      "id": 2,
-      "name": "test",
-      "email": "alsd@gmail.com",
-      "mobile": "1251251251",
-      "address": "a",
-      "services": "dd"
-    },
-    {
       "id": 3,
       "name": "test",
       "email": "sarvottam@gmail.com",
@@ -91,11 +83,35 @@
     },
     {
       "id": 4,
-      "name": "test",
+      "name": "test1",
       "email": "new@gmail.com",
       "mobile": "3213213211",
       "address": "surat",
       "services": "sld"
+    },
+    {
+      "id": 5,
+      "name": "Chai Sutta Bar",
+      "email": "chaisuttabar@gmail.com",
+      "mobile": "1212121212",
+      "address": "Surat",
+      "services": "chai or coffee"
+    },
+    {
+      "id": 6,
+      "name": "ffff",
+      "email": "ff@gmail.com",
+      "mobile": "2222211111",
+      "address": "gujrat",
+      "services": "surat"
+    },
+    {
+      "id": 7,
+      "name": "testss",
+      "email": "sarvottaqqm@gmail.com",
+      "mobile": "1452145222",
+      "address": "udhna",
+      "services": "panipuri"
     }
   ],
   "profile": {

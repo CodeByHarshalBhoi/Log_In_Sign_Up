@@ -61,9 +61,9 @@
           </div>
 
           <div class="alert alert-danger" *ngIf="f['name'].invalid && f['name'].touched">name should be 3 char
-              <!-- <span class="alert alert-danger" *ngIf="f['name'].errors && f['name'].errors['required']">
+              <!-- <div class="alert alert-danger" *ngIf="f['name'].errors && f['name'].errors['required']">
                   name is required
-              </span> -->
+              </div> -->
           </div>
 
           <div class="mb-3">
@@ -79,7 +79,10 @@
             <input type="text" formControlName="mobile" [class.is-invalid]="f['mobile'].invalid && f['mobile'].touched" class="form-control" id="exampleInputPassword1" placeholder="Mobile....">
           </div>
 
-          <div class="alert alert-danger" *ngIf="f['mobile'].invalid && f['mobile'].touched">*only 10 digits are allowed
+          <div class="alert alert-danger" *ngIf="f['mobile'].invalid && f['mobile'].touched">*required
+               <!-- <div class="alert alert-danger" *ngIf="f['mobile'].errors && f['mobile'].errors['maxlength']">
+                only 10 digits are allowed
+              </div> -->
           </div>
 
 
